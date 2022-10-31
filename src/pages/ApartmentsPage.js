@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"; // <== IMPORT useEffect
 import axios from "axios"; // <== IMPORT axios
-const apiURL = "https://ironbnb-m3.herokuapp.com/apartments";
+import { API_BASE_URL } from "../utils/constants";
 
 function ApartmentsList() {
   const [apartments, setApartments] = useState([]);
 
   useEffect(() => {
     // <== ADD THE EFFECT
-    axios.get(apiURL).then((response) => {
+    axios.get(`${API_BASE_URL}`).then((response) => {
       setApartments(response.data);
     });
   }, []); // <- [] means: Run the effect only once, after initial render
